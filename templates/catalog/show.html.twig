@@ -20,11 +20,20 @@
                     <p class="card-text"><strong>Synopsis :</strong> {{ course.synopsis }}</p>
                     <hr>
                     <p class="card-text">{{ course.description }}</p>
+                    
+                    <hr>
+                    <div class="mt-4">
+                        {{ form_start(form, {'attr': {'class': 'd-inline'}}) }}
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-heart"></i> Ajouter à la wishlist
+                        </button>
+                        {{ form_end(form) }}
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-3">
-            Liste des cours similaires...
+            {{ render(controller('App\\Controller\\CatalogController::similarCourses')) }}
         </div>
     </div>
 
